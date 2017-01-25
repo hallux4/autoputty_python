@@ -1,0 +1,15 @@
+#compdef autoputty
+
+_find_tmuxinator () {
+    #echo "php $(find . -maxdepth 2 -mindepth 1 -name 'console' -type f | head -n 1)"
+    echo "$(grep 'Server Name' autoputty.xml | sed 's/<Server Name="//' | sed 's/">//' | sed 's/^  //' | paste -sd ' ' -)"
+}
+
+_autoputty() {
+    
+    local -a arguments 
+    arguments=($(_find_tmuxinator))  #('e:description for e arg' 'f:description for f arg')
+    _describe -- arguments
+}
+
+_autoputty

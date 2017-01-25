@@ -1,0 +1,2 @@
+pycrypto==2.6.1
+untangle==1.1.0

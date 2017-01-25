@@ -1,0 +1,26 @@
+#compdef tmuxinator
+
+_find_tmuxinator () {
+    #echo "php $(find . -maxdepth 2 -mindepth 1 -name 'console' -type f | head -n 1)"
+    echo "$(grep 'Server Name' autoputty.xml | sed 's/<Server Name="//' | sed 's/">//' | sed 's/^  /--/')"
+}
+
+_tmuxinator() {
+
+
+    _arguments -C -s -S -n `_find_tmuxinator`
+    
+       # \
+        #'(- 1 *)'{-d,--directories}'[List directories on CHEATPATH]: :->full' \
+        #'(- 1 *)'{-e,--edit}'[Edit cheatsheet]:cheat:->cheats' \
+        #'(- 1 *)'{-l,--list}'[List cheatsheets]: :->full' \
+        #'(- 1 *)'{-s,--search}'[Search cheatsheets for <keyword>]: :->full' \
+        #'(- 1 *)'{-v,--version}'[display version and copyright information]: :->full' \
+
+        case "$state" in
+            (*)
+                _describe -t _tmuxinator 'cheats' tmuxinator
+                ;;
+        esac
+}
+_tmuxinator

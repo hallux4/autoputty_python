@@ -1,0 +1,66 @@
+
+Host papy
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papy#@
+    HostName localhost222
+    User papy
+    Password titititi
+    Type 1
+
+Host papyer
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papywererwer
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papywerwerwerwerer
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papyretrtr
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papyuyuu
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papyuiuiui
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papywww
+    HostName localhost
+    User papy
+    Password titititi
+    Type 1
+
+Host papyqqq
+    HostName localhost
+    User papy
+    Password titititi
+    Type 2
+
+Host papyiiii
+    HostName localhost
+    User papy
+    Password titititi
+    Type 4

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function usage () 
+{
+    echo "Usage:
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     windows-connect takes three parameters
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    windows-connect Login Password Host
+
+    "
+}
+
+function checkParam (){
+    if [[ $# -lt 3 ]] ; then
+        usage
+        exit 0
+    else
+        xfreerdp --ignore-certificate /drive:home,/home/USER/ --no-nego /u:$1 /p:$2 /w:1800 /h:1000 +clipboard --pcb /v:$3
+    fi
+}
+
+checkParam $@

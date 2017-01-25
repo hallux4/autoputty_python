@@ -1,0 +1,47 @@
+#!sh
+##compdef windows_connect
+
+OPTIONS=(option1 option2 option3 option4)
+
+ma_commande() {
+  echo "ma_commande a été appelée avec les arguments : $@"
+}
+
+# -- ZSH ----------------------------------------------------------------------
+
+__zsh_make_comp_list()
+{
+  compadd $OPTIONS
+  _files
+}
+
+__zsh_complete()
+{
+    alias ma_commande='ls'
+    compdef __zsh_make_comp_list ma_commande
+}
+
+# -- BASH ---------------------------------------------------------------------
+
+__bash_make_comp_list()
+{  
+  COMPREPLY=( $(compgen -W "${OPTIONS[*]}") )
+  return 0
+}
+
+__bash_complete()
+{
+  complete -df -F __bash_make_comp_list ma_commande
+}
+
+# -- MAIN ---------------------------------------------------------------------
+
+export SHELL=$(ps -p $$ | tail -1 | awk '{print $NF}' | sed -e 's/-//g')
+
+if [ "X$SHELL" = "Xzsh" ]; then
+  __zsh_complete
+fi
+
+if [ "X$SHELL" = "Xbash" ]; then
+  __bash_complete
+fi
